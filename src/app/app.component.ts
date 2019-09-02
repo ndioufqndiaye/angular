@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projet2';
+  constructor(
+    private _router: Router) { }
+    
+  logoutUser() {
+
+    localStorage.removeItem('token')
+    this._router.navigate(['/login'])
+    
+  }
 }
