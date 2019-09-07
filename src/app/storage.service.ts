@@ -1,5 +1,5 @@
 import { Injectable,Injector } from '@angular/core';
-import { HttpInterceptor } from '@angular/common/http';
+import { HttpInterceptor, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
 
@@ -13,6 +13,8 @@ export class StorageService implements HttpInterceptor {
   intercept(req, next){
 
     let authService=this.injector.get(AuthService)
+    const headers=new HttpHeaders;
+    headers.append('content-type', 'application/json');
 
     let tokenizedReq=req.clone({
    

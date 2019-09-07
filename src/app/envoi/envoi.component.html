@@ -1,3 +1,6 @@
+<div>
+    <app-navigation></app-navigation>
+  </div>
 <div class="py-5">
   <div class="row">
     <div class="col-md-6 mx-auto">
@@ -12,11 +15,11 @@
           <form #imageForm=ngForm class="form" >
             <div class="form-group">
               <label for="uname1">nom</label>
-              <input type="text" [(ngModel)]=" EnvoiArgentData.matricule" name="nom" class="form-control rounded-0" required>
+              <input type="text" [(ngModel)]=" EnvoiArgentData.nom" name="nom" class="form-control rounded-0" required>
             </div>
             <div class="form-group">
               <label>prenom</label>
-              <input type="texte" [(ngModel)]=" EnvoiArgentData.nom" name="prenom" class="form-control rounded-0"  required>
+              <input type="texte" [(ngModel)]=" EnvoiArgentData.prenom" name="prenom" class="form-control rounded-0"  required>
             </div>
             <div class="form-group">
               <label for="uname1">telephone</label>
@@ -36,7 +39,7 @@
             </div>
             <div class="form-group">
               <label>prenomben</label>
-              <input type="text" [(ngModel)]=" EnvoiArgentData.prenomben" name="email" class="form-control rounded-0"  required>
+              <input type="text" [(ngModel)]=" EnvoiArgentData.prenomben" name="prenomben" class="form-control rounded-0"  required>
             </div>
             <div class="form-group">
               <label for="uname1">telephoneben</label>

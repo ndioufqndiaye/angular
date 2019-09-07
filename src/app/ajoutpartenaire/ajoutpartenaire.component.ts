@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PartenaireService } from '../partenaire.service';
-import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-ajoutpartenaire',
@@ -14,8 +13,7 @@ export class AjoutpartenaireComponent implements OnInit {
 //fileToUploade: File=null;
 
   ajoutPartenaireData = {imageName: File=null}
-  constructor(private _part: PartenaireService,
-              private _router: Router) { }
+  constructor(private _part: PartenaireService) { }
 
   ngOnInit() {
   }

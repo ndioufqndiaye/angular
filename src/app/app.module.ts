@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-
+import { JwtModule } from "@auth0/angular-jwt";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +16,9 @@ import { AjoutpartenaireComponent } from './ajoutpartenaire/ajoutpartenaire.comp
 import { ListuserComponent } from './listuser/listuser.component';
 import { EnvoiComponent } from './envoi/envoi.component';
 import { DepotComponent } from './depot/depot.component';
+import { RetaitComponent } from './retait/retait.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ContratComponent } from './contrat/contrat.component';
 
 
 @NgModule({
@@ -28,22 +31,35 @@ import { DepotComponent } from './depot/depot.component';
     AjoutpartenaireComponent,
     ListuserComponent,
     EnvoiComponent,
-    DepotComponent
+    DepotComponent,
+    RetaitComponent,
+    NavigationComponent,
+    ContratComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    
-  ],
-  providers: [AuthService,PartenaireService, 
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: StorageService,
-      multi: true
-    }
-  ],
+ 
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter(){
+          return localStorage.getItem('access_token');},
+        whitelistedDomains: ['localhost:4200'],
+        blacklistedRoutes: ['http://localhost:4200/login']
+      }
+
+    })
+],
+providers: [AuthService,PartenaireService, 
+
+ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: StorageService,
+    multi: true
+  }
+],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

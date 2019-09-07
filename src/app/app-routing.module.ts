@@ -8,6 +8,9 @@ import { AjoutpartenaireComponent } from './ajoutpartenaire/ajoutpartenaire.comp
 import {  ListuserComponent } from './listuser/listuser.component';
 import {  DepotComponent } from './depot/depot.component';
 import {  EnvoiComponent } from './envoi/envoi.component';
+import {  RetaitComponent } from './retait/retait.component';
+import {  NavigationComponent } from './navigation/navigation.component';
+import {  ContratComponent } from './contrat/contrat.component';
 
 const routes: Routes = [
   {
@@ -44,6 +47,21 @@ const routes: Routes = [
     {
       path: 'envoi',
       component:  EnvoiComponent
+    
+    },
+    {
+      path: 'retrait',
+      component:  RetaitComponent
+    
+    },
+    {
+      path: 'nav',
+      component:  NavigationComponent
+    
+    },
+    {
+      path: 'contrat',
+      component:  ContratComponent
     
     }
 ];

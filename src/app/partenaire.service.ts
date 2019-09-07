@@ -18,6 +18,14 @@ export class PartenaireService {
   getUser(){
     return this.http.get<any>(this._listetUser) 
   }
+
+  monitor(id){
+
+  const   _bloquerUser= 'http://localhost:8000/api/bloque/'+id;
+
+    return this.http.get(_bloquerUser) 
+  }
+
   ajoutPartenaire(Partenaire){
     const endpoint = 'http://localhost:8000/api/partenaire';
     const formData: FormData = new FormData();

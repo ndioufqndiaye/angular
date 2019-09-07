@@ -1,6 +1,8 @@
 <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
   <thead>
     <tr>
+        <th class="th-sm">id
+          </th>
       <th class="th-sm">matricule
       </th>
       <th class="th-sm">nomPartenaire
@@ -13,19 +15,19 @@
       </th>
       <th class="th-sm">telephone
       </th>
-      <th class="th-sm">Status
-      </th>
+      
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let partenaire of partenaires">
+        <td>{{partenaire.id}}</td>
       <td>{{partenaire.matricule}}</td>
       <td>{{partenaire.nomPartenaire}}</td>
       <td>{{partenaire.NINEA}}</td>
       <td>{{partenaire.email}}</td>
       <td>{{partenaire.adresse}}</td>
       <td>{{partenaire.telephone}}</td>
-      <td>{{partenaire.status}}</td>
+      
     </tr> 
   </tbody>
   

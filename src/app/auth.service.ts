@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router'
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,11 @@ export class AuthService {
 private _loginUrl= "http://localhost:8000/api/login";
 private _compteUrl= "http://localhost:8000/api/compte";
 private _depotUrl= "http://localhost:8000/api/depot";
+private urlretrait= "http://localhost:8000/api/retrait";
 
+   jwt: string;
+   username: string;
+   roles:Array<string>;
   constructor(private http: HttpClient,
               private _router: Router) { }
 
@@ -39,7 +44,9 @@ private _depotUrl= "http://localhost:8000/api/depot";
   }
  
   loginUser(user){
+    
     console.log(user)
+
     return this.http.post<any>(this._loginUrl, user)
    }
    
@@ -68,6 +75,12 @@ private _depotUrl= "http://localhost:8000/api/depot";
     return this.http.post(endpoin, formData);
    //return this.http.post<any>(this._userUrl, user)
   }
+  RetraitArgent(retrait){
+
+      console.log(retrait);
+      return this.http.post<any>(this.urlretrait,retrait);
+ 
+  }
    logged(){
 
      return !!localStorage.getItem('token')
@@ -78,5 +91,39 @@ private _depotUrl= "http://localhost:8000/api/depot";
     return localStorage.getItem('token')
    }
 
-   
+  /* saveToken(jwt :string){
+    localStorage.setItem('token',jwt['token']);
+    this.jwt=jwt['token'];
+    this.parseJWT();
+}*/
+   parseJWT(){
+    let jwtHelper = new JwtHelperService();
+    let objJWT = jwtHelper.decodeToken(this.jwt);
+    console.log(objJWT)
+    this.username = objJWT.username;
+    console.log(this.username)
+    this.roles = objJWT.roles;
+    console.log(this.roles)
+    
+   }
+
+/*loadToken(){
+    this.jwt=localStorage.getItem('token');
+    this.parseJWT();
+  }
+
+   isAdmin() {
+    return this.roles.indexOf('ROLE_ADMIN') >= 0;
+
+}
+isSuperAdmin() {
+    return this.roles.indexOf('ROLE_SUPER_ADMIN') >= 0;
+
+}
+isUser() {
+    return this.roles.indexOf('ROLE_USER') >= 0;
+}
+isAuthentificated() {
+    return this.roles 
+}*/
 }

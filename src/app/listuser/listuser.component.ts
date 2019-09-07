@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PartenaireService } from '../partenaire.service';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listuser',
@@ -11,11 +12,13 @@ import { HttpClient } from '@angular/common/http';
 export class ListuserComponent implements OnInit {
 
   users = [];
-  //private _bloquerUrl= "http://localhost:8000/api/bloquer";
+
+  status='activer';
+  etat=true;
 
   constructor(private _userservice: PartenaireService,
-              private http: HttpClient
-    ) { }
+              private _bloservice: PartenaireService,
+              private http: HttpClient) { }
 
   ngOnInit() {
     this._userservice.getUser()
@@ -25,8 +28,16 @@ export class ListuserComponent implements OnInit {
       err => console.log(err)
     );
   }
- /* bloquerUser(bloquer){
-    
-    return this.http.get<any>(this._bloquerUrl,bloquer)
-   }*/
+  
+  bloquerUser(id){
+
+    this._bloservice.monitor(id).subscribe(
+
+      res=>{
+        console.log(res)
+        this.ngOnInit();
+      }, 
+      err=>console.log(err)
+    );
+   }
 }
