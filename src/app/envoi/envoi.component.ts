@@ -24,5 +24,11 @@ export class EnvoiComponent implements OnInit {
       err => console.log(err)
     )    
   }
-
+   affCache(idDiv) {
+    var div = document.getElementById(idDiv);
+    if (div.style.display == "")
+    div.style.display = "none";
+    else
+    div.style.display = "";
+    }
 }

@@ -12,14 +12,21 @@ export class NavigationComponent {
   constructor(private _auth: AuthService,
     private _router: Router) { }
 
-    
-  logoutUser() {
+    logoutUser() {
 
-    localStorage.removeItem('token')
-    this._router.navigate(['/login'])
-    
-  }
-  /*isAdmin() {
+      localStorage.removeItem('token')
+      localStorage.removeItem('username')
+      localStorage.removeItem('roles')
+      localStorage.removeItem('nom')
+      localStorage.removeItem('prenom')
+      localStorage.removeItem('expiration')
+      localStorage.removeItem('imageName')
+      
+      this._router.navigate(['/login'])
+      
+    }
+  
+  isAdmin() {
 
     return this._auth.isAdmin();
   
@@ -31,5 +38,12 @@ export class NavigationComponent {
   }
   isSuperAdmin() {
     return this._auth.isSuperAdmin();
-  }*/
+  }
+  isCaissier() {
+    return this._auth.isCaissier();
+  }
+
+  isAuthentificated(){
+    return this._auth.isAuthentificated();
+  }
 }

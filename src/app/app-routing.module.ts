@@ -11,12 +11,20 @@ import {  EnvoiComponent } from './envoi/envoi.component';
 import {  RetaitComponent } from './retait/retait.component';
 import {  NavigationComponent } from './navigation/navigation.component';
 import {  ContratComponent } from './contrat/contrat.component';
+import {  AccueilComponent } from './accueil/accueil.component';
+import {  TableComponent } from './table/table.component';
 
 const routes: Routes = [
+
+  { path: '', redirectTo:'login', pathMatch :'full' },
   {
   path: 'login',
   component: LoginComponent
   },
+  {
+    path: 'accueil',
+    component: AccueilComponent
+    },
   {
     path: 'compte',
     component: CompteComponent
@@ -55,13 +63,18 @@ const routes: Routes = [
     
     },
     {
-      path: 'nav',
+      path: 'navigation',
       component:  NavigationComponent
     
     },
     {
       path: 'contrat',
       component:  ContratComponent
+    
+    },
+    {
+      path: 'table',
+      component:  TableComponent
     
     }
 ];

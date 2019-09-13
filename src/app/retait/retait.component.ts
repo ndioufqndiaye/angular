@@ -28,7 +28,7 @@ export class RetaitComponent implements OnInit {
       Swal.fire({
         position: 'top-end',
         type: 'success',
-        title: 'Envoi réussie!!!',
+        title: 'réussie!!!',
         showConfirmButton: false,
         timer: 1500
       })

@@ -63,7 +63,7 @@
               <input type="password" [(ngModel)]="ajoutUserData.password" name="password" class="form-control rounded-0"  required>
             </div>
             <label for="imageName">imageName</label>
-            <img [src]="imgUrl"  style="width:250px; height:200px">
+            <img [src]="imgUrl"  style="width:100px; height:100px">
             <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
             <button type="button" (click)="ajoutUser()" class="btn btn-primary float-right">Ajouter</button>
           </form>

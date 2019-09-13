@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,ViewChild, OnInit } from '@angular/core';
 import { PartenaireService } from '../partenaire.service';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-
 @Component({
   selector: 'app-listuser',
   templateUrl: './listuser.component.html',
@@ -13,14 +12,15 @@ export class ListuserComponent implements OnInit {
 
   users = [];
 
-  status='activer';
-  etat=true;
-
+ 
   constructor(private _userservice: PartenaireService,
               private _bloservice: PartenaireService,
               private http: HttpClient) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    
+    
+    
     this._userservice.getUser()
     
     .subscribe(

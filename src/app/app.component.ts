@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router'
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,11 @@ import { Router } from '@angular/router'
 })
 export class AppComponent {
   title = 'projet2';
-  constructor(
+  constructor(private _auth: AuthService,
     private _router: Router) { }
     
-  logoutUser() {
-
-    localStorage.removeItem('token')
-    this._router.navigate(['/login'])
-    
-  }
+  
+ /* isAuthentificated(){
+    return this._auth.isAuthentificated();
+  }*/
 }

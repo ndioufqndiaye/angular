@@ -95,8 +95,8 @@ private urlretrait= "http://localhost:8000/api/retrait";
     localStorage.setItem('token',jwt['token']);
     this.jwt=jwt['token'];
     this.parseJWT();
-}*/
-   parseJWT(){
+  }*/
+  /* parseJWT(){
     let jwtHelper = new JwtHelperService();
     let objJWT = jwtHelper.decodeToken(this.jwt);
     console.log(objJWT)
@@ -104,13 +104,12 @@ private urlretrait= "http://localhost:8000/api/retrait";
     console.log(this.username)
     this.roles = objJWT.roles;
     console.log(this.roles)
-    
-   }
+    }*/
 
 /*loadToken(){
     this.jwt=localStorage.getItem('token');
     this.parseJWT();
-  }
+  }*/
 
    isAdmin() {
     return this.roles.indexOf('ROLE_ADMIN') >= 0;
@@ -123,7 +122,13 @@ isSuperAdmin() {
 isUser() {
     return this.roles.indexOf('ROLE_USER') >= 0;
 }
+isCaissier() {
+  return this.roles.indexOf('ROLE_CAISSIER') >= 0;
+}
 isAuthentificated() {
     return this.roles 
-}*/
+}
+
+
+
 }

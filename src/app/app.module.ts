@@ -19,7 +19,9 @@ import { DepotComponent } from './depot/depot.component';
 import { RetaitComponent } from './retait/retait.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ContratComponent } from './contrat/contrat.component';
-
+import { MaterialModule } from './material/material.module';
+import { AccueilComponent } from './accueil/accueil.component';
+import { TableComponent } from './table/table.component'; 
 
 @NgModule({
   declarations: [
@@ -34,14 +36,17 @@ import { ContratComponent } from './contrat/contrat.component';
     DepotComponent,
     RetaitComponent,
     NavigationComponent,
-    ContratComponent
+    ContratComponent,
+    AccueilComponent,
+    TableComponent
+   
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
- 
+    MaterialModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter(){
